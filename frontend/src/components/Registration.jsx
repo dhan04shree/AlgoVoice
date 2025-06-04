@@ -22,7 +22,7 @@ const Registration = () => {
 
   return (
     <div className="bg-gray-900 flex items-center justify-center min-h-screen">
-  <div className="w-full max-w-md bg-[#1b2a41] p-8 rounded-lg shadow-lg">
+  <div className="w-full max-w-md bg-[#080f15] p-8 rounded-lg shadow-lg">
     <h2 className="text-2xl font-bold text-center mb-6 text-white">Register</h2>
     <form onSubmit={handleSubmit}>
       <label className="text-white" htmlFor="username">Username</label>
@@ -32,7 +32,7 @@ const Registration = () => {
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Username"
         required
-        className=" bg-[#ccc9dc] w-full px-4 py-2 my-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-white-500"
+        className="bg-gray-800 text-white w-full px-4 py-2 my-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-white-500"
       />
       <label className="text-white" htmlFor="password">Password</label>
       <input
@@ -42,18 +42,18 @@ const Registration = () => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
         required
-        className="bg-[#ccc9dc] w-full px-4 py-2 my-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-white-500"
+        className="bg-gray-800 text-white w-full px-4 py-2 my-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-white-500"
       />
       <button
         type="submit"
-        className="w-full bg-gray-900 text-white py-3 rounded-lg  hover:bg-[#0c0c0c]  transition-colors duration-200"
+        className="my-5 w-full bg-blue-600 text-white py-3 rounded-lg  hover:bg-blue-700   transition-colors duration-200"
       >
         Register
       </button>
     </form>
-    <p className="mt-4 text-center text-sm text-gray-600">
+    <p className="mt-4 text-center text-sm text-gray-500">
       Already have an account? {" "}
-      <a href="/login" className="text-[#ccc9dc] hover:underline">
+      <a href="/login" className="text-white hover:underline">
         Login
       </a>
     </p>

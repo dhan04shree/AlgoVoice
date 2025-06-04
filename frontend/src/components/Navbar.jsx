@@ -7,7 +7,7 @@ export default function Navbar(){
         navLinksRef.current.classList.toggle('top-[10%]')
     }
     return(
-        <header className="bg-[#0c0c0c] text-white">
+        <header className="bg-[#080f15] text-white">
         <nav className=" mx-auto py-5 flex justify-between items-center w-[92%]">
             <div><h1><a href="/">AlgoVoice</a> </h1></div>
             <div ref={navLinksRef} className="nav-links duration-500 md:static absolute md:min-h-fit min-h-[12vh] left-0 top-[-100%] md:w-auto w-full items-center px-5">

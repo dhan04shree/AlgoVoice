@@ -32,7 +32,7 @@ const Login = () => {
   };
 
   return (
-  <div className="bg-[#0c1821] flex items-center justify-center min-h-screen bg-gray-100">
+  <div className="bg-gray-900 flex items-center justify-center min-h-screen">
   <div className="w-full max-w-md bg-[#1b2a41]  p-8 rounded-lg shadow-lg">
     <h2 className="text-2xl font-bold text-center mb-6 text-white">Login</h2>
     {errorMessage && (
@@ -56,7 +56,7 @@ const Login = () => {
       />
       <button
         type="submit"
-        className="w-full bg-[#0c1821] text-white py-3 rounded-lg hover:bg-[#0a0a0a] transition-colors duration-200"
+        className="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-[#0c0c0c] transition-colors duration-200"
       >Login
       </button>
     </form>

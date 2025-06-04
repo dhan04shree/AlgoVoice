@@ -21,35 +21,39 @@ const Registration = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-  <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
-    <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Register</h2>
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="bg-[#0c1821] flex items-center justify-center min-h-screen bg-gray-100">
+  <div className="w-full max-w-md bg-[#1b2a41] p-8 rounded-lg shadow-lg">
+    <h2 className="text-2xl font-bold text-center mb-6 text-white">Register</h2>
+    <form onSubmit={handleSubmit}>
+      <label className="text-white" htmlFor="username">Username</label>
       <input
+      id="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Username"
         required
-        className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className=" bg-[#ccc9dc] w-full px-4 py-2 my-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-white-500"
       />
+      <label className="text-white" htmlFor="password">Password</label>
       <input
+      id="password"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
         required
-        className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="bg-[#ccc9dc] w-full px-4 py-2 my-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-white-500"
       />
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors duration-300"
+        className="w-full bg-[#0c1821] text-white py-3 rounded-lg  hover:bg-[#0a0a0a]  transition-colors duration-200"
       >
         Register
       </button>
     </form>
     <p className="mt-4 text-center text-sm text-gray-600">
       Already have an account? {" "}
-      <a href="/login" className="text-blue-600 hover:underline">
+      <a href="/login" className="text-[#ccc9dc] hover:underline">
         Login
       </a>
     </p>

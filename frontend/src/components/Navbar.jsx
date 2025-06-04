@@ -7,11 +7,11 @@ export default function Navbar(){
         navLinksRef.current.classList.toggle('top-[10%]')
     }
     return(
-        <header className="bg-white">
-        <nav className=" mx-auto py-4 flex justify-between items-center w-[92%]">
-            <div><h1>AlgoVoice</h1></div>
-            <div ref={navLinksRef} className="nav-links duration-500 md:static absolute md:min-h-fit min-h-[12vh] left-0 top-[-100%] md:w-auto w-full items-center px-5 bg-white">
-                <ul className="md:flex-row flex-col flex md:items-center md:gap-[4vw] gap-4">
+        <header className="bg-[#0c0c0c] text-white">
+        <nav className=" mx-auto py-5 flex justify-between items-center w-[92%]">
+            <div><h1><a href="/">AlgoVoice</a> </h1></div>
+            <div ref={navLinksRef} className="nav-links duration-500 md:static absolute md:min-h-fit min-h-[12vh] left-0 top-[-100%] md:w-auto w-full items-center px-5">
+                <ul className="md:flex-row flex-col flex md:items-center md:gap-[4vw] gap-4 text-[#ccc9dc]">
                     <li>
                         <a className="hover:text-grey-500" href="/login">Login</a>
                     </li>

@@ -32,35 +32,37 @@ const Login = () => {
   };
 
   return (
-  <div className="flex items-center justify-center min-h-screen bg-gray-100">
-  <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
-    <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Login</h2>
+  <div className="bg-[#0c1821] flex items-center justify-center min-h-screen bg-gray-100">
+  <div className="w-full max-w-md bg-[#1b2a41]  p-8 rounded-lg shadow-lg">
+    <h2 className="text-2xl font-bold text-center mb-6 text-white">Login</h2>
     {errorMessage && (
       <div className="mb-4 text-center text-sm text-red-600">{errorMessage}</div>
     )}
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit}>
+      <label className="text-white" htmlFor="username">Username</label>
       <input
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Username"
-        className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="bg-[#ccc9dc] w-full px-4 py-2 my-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
+          <label className="text-white" htmlFor="password">Password</label>
       <input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
-        className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className=" bg-[#ccc9dc] w-full px-4 py-2 my-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors duration-300"
+        className="w-full bg-[#0c1821] text-white py-3 rounded-lg hover:bg-[#0a0a0a] transition-colors duration-200"
       >Login
       </button>
     </form>
     <p className="mt-4 text-center text-sm text-gray-600">
       Don't have an account?{" "}
-      <a href="/register" className="text-blue-600 hover:underline">Register
+      <a href="/register" className="text-[#ccc9dc] hover:underline">Register
       </a>
     </p>
   </div>

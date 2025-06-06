@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 
-const VoiceRecorder = () => {
+const VoiceRecorder = ({ onUpload, onStartUpload }) => {
   const [recording, setRecording] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
   const [seconds, setSeconds] = useState(0);
@@ -40,11 +40,17 @@ const VoiceRecorder = () => {
       formData.append('audio', blob, 'recording.webm');
 
       try {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/upload-audio`, {
+         if (onStartUpload) onStartUpload();
+        const res = await fetch(`http://localhost:3001/upload-audio`, {
           method: 'POST',
           body: formData,
         });
         const data = await res.json();
+        setAudioUrl(data.url);
+       if (data?.url && onUpload) {
+        onUpload(data.url); 
+      }
+
         console.log('Uploaded:', data);
       } catch (err) {
         console.error('Upload error', err);

@@ -9,11 +9,15 @@ const VoiceEntryForm = () => {
   const [tags, setTags] = useState('');
   const [voiceUrl, setVoiceUrl] = useState('');
   const [queUrl, setQueUrl] = useState('');
+const [isUploading, setIsUploading] = useState(false);
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (!voiceUrl) {
+        // alert("Voice is still uploading. Please wait.");
+        return;
+      }
     const payload = {
       question,
       solutionText,
@@ -21,9 +25,10 @@ const VoiceEntryForm = () => {
       voiceUrl,
       queUrl
     };
+    console.log(payload);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/algovoice`, {
+      const res = await fetch(`http://localhost:3001/api/algovoice`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -54,11 +59,18 @@ const VoiceEntryForm = () => {
 
         <input type="text" placeholder="Tags (comma separated)" value={tags} onChange={(e) => setTags(e.target.value)} className="w-full border p-2 rounded bg-gray-800 text-white"/>
 
-        <VoiceRecorder onUpload={(url) => setVoiceUrl(url)} />
-
-        {voiceUrl && (
-          <div className="text-sm text-green-600">🎧 Voice recording uploaded.</div>
-        )}
+       <VoiceRecorder 
+        onUpload={(url) => {
+          setVoiceUrl(url);
+          setIsUploading(false);
+        }} 
+        onStartUpload={() => setIsUploading(true)} 
+      />
+       {isUploading && (
+        <div className="text-sm text-green-400 text-center">
+          ⏳ Uploading voice... please wait.
+        </div>
+      )}
 
         <button
           type="submit"

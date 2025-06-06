@@ -41,7 +41,7 @@ const VoiceRecorder = ({ onUpload, onStartUpload }) => {
 
       try {
          if (onStartUpload) onStartUpload();
-        const res = await fetch(`http://localhost:3001/upload-audio`, {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/upload-audio`, {
           method: 'POST',
           body: formData,
         });

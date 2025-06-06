@@ -28,7 +28,7 @@ const [isUploading, setIsUploading] = useState(false);
     console.log(payload);
 
     try {
-      const res = await fetch(`http://localhost:3001/api/algovoice`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/algovoice`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

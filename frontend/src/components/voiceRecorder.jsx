@@ -40,7 +40,7 @@ const VoiceRecorder = () => {
       formData.append('audio', blob, 'recording.webm');
 
       try {
-        const res = await fetch('http://localhost:3001/upload-audio', {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/upload-audio`, {
           method: 'POST',
           body: formData,
         });

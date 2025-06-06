@@ -23,7 +23,7 @@ const VoiceEntryForm = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:3001/api/algovoice', {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/algovoice`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -37,7 +37,7 @@ const VoiceEntryForm = () => {
       
     } catch (err) {
       console.error(err);
-      // alert('Error saving entry.');
+      alert('Error saving entry.');
     }
   };
 

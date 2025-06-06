@@ -7,7 +7,11 @@ const authRoute = require("./routes/auth");
 const algovoiceRoutes = require("./routes/algovoice");
 
 const DB_URL = process.env.MONGO_URL;
+
 const multer = require('multer');
+const { storage } = require('./cloudinary'); 
+const upload = multer({ storage });
+
 mongoose.connect(DB_URL)
    .then(() => {
     console.log("Connected to db");
@@ -15,23 +19,26 @@ mongoose.connect(DB_URL)
   .catch((err) => {
     console.error("Error connecting to db", err);
   });
+
 app.use(cors()); 
 app.use(express.json());
 
 
-const storage = multer.diskStorage({
-  destination: './uploads/',
-  filename: (req, file, cb) => {
-    cb(null, `voice-${Date.now()}.webm`);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: './uploads/',
+//   filename: (req, file, cb) => {
+//     cb(null, `voice-${Date.now()}.webm`);
+//   },
+// });
 
-const upload = multer({ storage });
 
 app.post('/upload-audio', upload.single('audio'), (req, res) => {
-  const fileUrl = `/uploads/${req.file.filename}`;
-  console.log(fileUrl);
-  res.json({ url: fileUrl });
+   try {
+    return res.json({ url: req.file.path }); // return uploaded URL
+  } catch (error) {
+    console.error('Upload error', error);
+    return res.status(500).json({ error: 'Upload failed' });
+  }
 }); 
 
 

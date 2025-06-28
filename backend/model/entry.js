@@ -5,9 +5,9 @@ const entrySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  solutionText: {
-    type: String,
-  },
+  // solutionText: {
+  //   type: String,
+  // },
   queUrl:{
     type:String,
     default:''

@@ -6,7 +6,7 @@ const entryController = async (req, res) => {
     const newEntry = new Entry({
       question,
       queUrl,
-      solutionText,
+      // solutionText,
       tags,
       voiceUrl
     });

@@ -5,7 +5,7 @@ import VoiceRecorder from "../components/voiceRecorder";
 const VoiceEntryForm = () => {
     const navigate = useNavigate(); 
   const [question, setTitle] = useState('');
-  const [solutionText, setDescription] = useState('');
+  // const [solutionText, setDescription] = useState('');
   const [tags, setTags] = useState('');
   const [voiceUrl, setVoiceUrl] = useState('');
   const [queUrl, setQueUrl] = useState('');
@@ -20,7 +20,7 @@ const [isUploading, setIsUploading] = useState(false);
       }
     const payload = {
       question,
-      solutionText,
+      // solutionText,
       tags: tags.split(',').map(tag => tag.trim()),
       voiceUrl,
       queUrl
@@ -47,17 +47,17 @@ const [isUploading, setIsUploading] = useState(false);
   };
 
   return (
-    <div className="text-white mt-5 max-w-xl mx-auto p-6 bg-[#080f15] rounded shadow space-y-4">
-      <h1 className="text-lg font-bold text-center">New AlgoVoice Entry</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className=" mt-5 max-w-xl mx-auto p-6 text-white rounded shadow space-y-4">
+      <h1 className="text-2xl md:text-3xl font-bold text-white-800 mb-6">Record Your Algorithm Approach</h1>
+      <form onSubmit={handleSubmit} >
+        <label htmlFor="QuestionText" className='text-lg'>Title</label>
+        <textarea id='QuestionText' type="text" placeholder="Question Title" value={question} onChange={(e) => setTitle(e.target.value)} className="mb-4 mt-2 w-full border border-white bg-[#0C0C0C] p-2 rounded text-white" required/>
+          <label htmlFor="QuestionUrl" className='text-lg'>Question URL Link</label>
+        <input  id='QuestionUrl' type="url" placeholder="Paste the link" value={queUrl} onChange={(e) => setQueUrl(e.target.value)} className="mb-4 mt-2 w-full border border-white bg-[#0C0C0C] p-2 rounded  text-white" />
 
-        <textarea type="text" placeholder="Question Title" value={question} onChange={(e) => setTitle(e.target.value)} className="w-full border p-2 rounded bg-gray-800 text-white" required/>
-
-        <input type="url" placeholder="Question Url" value={queUrl} onChange={(e) => setQueUrl(e.target.value)} className="w-full border p-2 rounded bg-gray-800 text-white" />
-
-        <textarea placeholder="Solution Description" value={solutionText} onChange={(e) => setDescription(e.target.value)} className="w-full border p-2 rounded bg-gray-800 text-white" rows={4}  />
-
-        <input type="text" placeholder="Tags (comma separated)" value={tags} onChange={(e) => setTags(e.target.value)} className="w-full border p-2 rounded bg-gray-800 text-white"/>
+        {/* <textarea placeholder="Solution Description" value={solutionText} onChange={(e) => setDescription(e.target.value)} className="w-full border p-2 rounded bg-gray-800 text-white" rows={4}  /> */}
+        <label htmlFor="Tags" className='text-lg'>Tags</label>
+        <input type="text"  id='Tags' placeholder="Tags (comma separated)" value={tags} onChange={(e) => setTags(e.target.value)} className="mb-4 mt-2 w-full border border-white bg-[#0C0C0C] p-2 rounded  text-white"/>
 
        <VoiceRecorder 
         onUpload={(url) => {
@@ -74,7 +74,7 @@ const [isUploading, setIsUploading] = useState(false);
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Save Entry
+          className="mt-4 w-full bg-blue-500 py-2 rounded">Save Entry
         </button>
       </form>
     </div>

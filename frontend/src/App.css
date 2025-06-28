@@ -1,3 +1,9 @@
 body{
-  background-color: rgb(17 24 39);
+  background-color: #0C0C0C;
+}
+.herobtn{
+  background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+}
+.herobtn:hover{
+  background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #a243ce 0%, #cd5cc5 50%, #ea5090 66%, #de4c89 100%);
 }

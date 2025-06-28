@@ -11,7 +11,7 @@ export default function Navbar(){
         <nav className=" mx-auto py-5 flex justify-between items-center w-[92%]">
             <div><h1><a href="/">AlgoVoice</a> </h1></div>
             <div ref={navLinksRef} className="nav-links duration-500 md:static absolute md:min-h-fit min-h-[12vh] left-[40%] top-[-100%] md:w-auto w-full items-center px-5">
-                <ul className="text-white/70 md:pt-0 sm:pt-6 md:flex-row flex-col flex md:items-center md:gap-[4vw] gap-4">
+                <ul className="text-white/70 mt-4 md:mt-0 sm:mt-4 md:flex-row flex-col flex md:items-center md:gap-[4vw] gap-4">
                     <li>
                         <a className="hover:text-white" href="/login">Login</a>
                     </li>

@@ -32,9 +32,9 @@ const Login = () => {
   };
 
   return (
-  <div className="bg-gray-900 flex items-center justify-center min-h-screen">
-  <div className="w-full max-w-md bg-[#080f15]  p-8 rounded-lg shadow-lg">
-    <h2 className="text-2xl font-bold text-center mb-6 text-white">Login</h2>
+  <div className="flex md:items-center justify-center min-h-screen">
+  <div className="w-full max-w-md p-8 rounded-lg shadow-lg">
+    <h2 className="pt-32 sm:pt-32 md:pt-0 font-bold text-center mb-6 text-white text-2xl md:text-3xl ">Login</h2>
     {errorMessage && (
       <div className="mb-4 text-center text-sm text-red-600">{errorMessage}</div>
     )}
@@ -56,7 +56,7 @@ const Login = () => {
       />
       <button
         type="submit"
-        className="my-5 w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+        className="my-5 w-full bg-[#a243ce] hover:bg-[#742e95] text-white py-3 rounded-lg  transition-colors duration-200"
       >Login
       </button>
     </form>

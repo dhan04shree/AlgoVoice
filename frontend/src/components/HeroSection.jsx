@@ -1,11 +1,11 @@
 export default function HeroSection(){
     return(
-    <div className="h-screen flex items-center justify-center text-white">
+    <div className="h-screen flex md:items-center justify-center text-white">
         <div className="max-w-4xl text-center px-4">
-        <h1 className="text-6xl font-bold mb-6 leading-tight">
+        <h1 className="text-4xl  pt-32 sm:pt-32 md:pt-0 md:text-6xl font-bold mb-6 leading-tight">
         Every Solution Matters. Capture It With <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">AlgoVoice</span>
         </h1>
-        <p className="text-lg text-[#ccc9dc] mb-6 px-32">
+        <p className="text-lg text-[#ccc9dc] mb-6 md:px-32">
             Record your logic, ideas, and breakthroughs in one place. Revisit your past work to sharpen your thinking and never lose progress.
         </p>
         <form action="/newentry" className="flex justify-center mt-4">

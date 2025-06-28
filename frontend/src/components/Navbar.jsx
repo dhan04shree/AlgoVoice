@@ -10,13 +10,13 @@ export default function Navbar(){
         <header className="bg-[#0C0C0C] text-white border-b-0.5 border-gray-500/50">
         <nav className=" mx-auto py-5 flex justify-between items-center w-[92%]">
             <div><h1><a href="/">AlgoVoice</a> </h1></div>
-            <div ref={navLinksRef} className="nav-links duration-500 md:static absolute md:min-h-fit min-h-[12vh] left-0 top-[-100%] md:w-auto w-full items-center px-5">
-                <ul className="md:flex-row flex-col flex md:items-center md:gap-[4vw] gap-4">
+            <div ref={navLinksRef} className="nav-links duration-500 md:static absolute md:min-h-fit min-h-[12vh] left-[40%] top-[-100%] md:w-auto w-full items-center px-5">
+                <ul className="text-white/70 md:flex-row flex-col flex md:items-center md:gap-[4vw] gap-4">
                     <li>
-                        <a className="hover:text-grey-500" href="/login">Login</a>
+                        <a className="hover:text-white" href="/login">Login</a>
                     </li>
                     <li>
-                        <a className="hover:text-grey-500" href="/register">Signup</a>
+                        <a className="hover:text-white" href="/register">Signup</a>
                     </li>
                 </ul>
             </div>

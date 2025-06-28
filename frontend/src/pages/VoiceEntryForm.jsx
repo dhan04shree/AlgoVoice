@@ -51,13 +51,13 @@ const [isUploading, setIsUploading] = useState(false);
       <h1 className="text-2xl md:text-3xl font-bold text-white-800 mb-6">Record Your Algorithm Approach</h1>
       <form onSubmit={handleSubmit} >
         <label htmlFor="QuestionText" className='text-lg'>Title</label>
-        <textarea id='QuestionText' type="text" placeholder="Question Title" value={question} onChange={(e) => setTitle(e.target.value)} className="mb-4 mt-2 w-full border border-white bg-[#0C0C0C] p-2 rounded text-white" required/>
+        <textarea id='QuestionText' type="text" placeholder="Question Title" value={question} onChange={(e) => setTitle(e.target.value)} className="bg-gray-800 text-white mb-4 mt-2 w-full border border-white  p-2 rounded" required/>
           <label htmlFor="QuestionUrl" className='text-lg'>Question URL Link</label>
-        <input  id='QuestionUrl' type="url" placeholder="Paste the link" value={queUrl} onChange={(e) => setQueUrl(e.target.value)} className="mb-4 mt-2 w-full border border-white bg-[#0C0C0C] p-2 rounded  text-white" />
+        <input  id='QuestionUrl' type="url" placeholder="Paste the link" value={queUrl} onChange={(e) => setQueUrl(e.target.value)} className="bg-gray-800 mb-4 mt-2 w-full border border-white p-2 rounded  text-white" />
 
         {/* <textarea placeholder="Solution Description" value={solutionText} onChange={(e) => setDescription(e.target.value)} className="w-full border p-2 rounded bg-gray-800 text-white" rows={4}  /> */}
         <label htmlFor="Tags" className='text-lg'>Tags</label>
-        <input type="text"  id='Tags' placeholder="Tags (comma separated)" value={tags} onChange={(e) => setTags(e.target.value)} className="mb-4 mt-2 w-full border border-white bg-[#0C0C0C] p-2 rounded  text-white"/>
+        <input type="text"  id='Tags' placeholder="Tags (comma separated)" value={tags} onChange={(e) => setTags(e.target.value)} className="bg-gray-800 mb-4 mt-2 w-full border border-white p-2 rounded  text-white"/>
 
        <VoiceRecorder 
         onUpload={(url) => {
@@ -74,7 +74,7 @@ const [isUploading, setIsUploading] = useState(false);
 
         <button
           type="submit"
-          className="mt-4 w-full bg-blue-500 py-2 rounded">Save Entry
+          className="mt-4 w-full bg-[#a243ce] hover:bg-[#742e95] py-2 rounded">Save Entry
         </button>
       </form>
     </div>

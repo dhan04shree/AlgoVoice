@@ -1,7 +1,7 @@
 const Entry = require("../model/entry");
 const entryController = async (req, res) => {
   try {
-    const { question, solutionText, queUrl,tags, voiceUrl } = req.body;
+    const { question,queUrl,tags, voiceUrl } = req.body;
 
     const newEntry = new Entry({
       question,

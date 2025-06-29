@@ -20,7 +20,11 @@ mongoose.connect(DB_URL)
     console.error("Error connecting to db", err);
   });
 
-app.use(cors()); 
+app.use(cors({
+  origin: 'https://algo-voice.vercel.app',
+  methods: ['POST', 'GET', 'PUT','DELETE','PATCH'],     
+  credentials: true                        
+}));
 app.use(express.json());
 
 

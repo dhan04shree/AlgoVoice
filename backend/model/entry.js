@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const Schema = mongoose.Schema;
 const entrySchema = new mongoose.Schema({
   question: {
     type: String,
@@ -27,7 +27,11 @@ const entrySchema = new mongoose.Schema({
   updatedAt: {
     type: Date,
     default: Date.now,
-  }
+  },
+  owner :{
+    type : Schema.Types.ObjectId,
+    ref : "User",
+    },
 });
 
 // Auto-update updatedAt on save

@@ -14,6 +14,6 @@ const loginController =  async (req, res) => {
 
   const token = jwt.sign({ userId: user.id }, process.env.KEY);
 
-  res.send({ token });
+  res.json({ token });
 }
 module.exports = loginController;

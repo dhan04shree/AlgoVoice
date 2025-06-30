@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 export default function HeroSection(){
+
+    const navigate = useNavigate();
+    const handleGetStarted = () => {
+    const token = localStorage.getItem("token");
+    navigate(token ? "/newentry" : "/login");
+    }
     return(
     <div className="h-screen flex md:items-center justify-center text-white">
         <div className="max-w-4xl text-center px-4">
@@ -9,8 +17,7 @@ export default function HeroSection(){
             Record your logic, ideas, and breakthroughs in one place. Revisit your past work to sharpen your thinking and never lose progress.
         </p>
         <form action="/newentry" className="flex justify-center mt-4">
-        <button className="herobtn group text-black px-6 py-3 rounded-lg transition duration-300 flex items-center gap-2">Get Started <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1"><i className="fa-solid fa-arrow-right-long"></i></span>
-</button>
+        <button className="herobtn group text-black px-6 py-3 rounded-lg transition duration-300 flex items-center gap-2" onClick={handleGetStarted}>Get Started <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1"><i className="fa-solid fa-arrow-right-long"></i></span></button>
 
         </form>
         </div>

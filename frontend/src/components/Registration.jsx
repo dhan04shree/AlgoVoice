@@ -9,10 +9,21 @@ const Registration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/register`, {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/register`, {
         username,
         password,
       });
+
+       console.log("Registration response:", res);
+
+    const token = res?.data?.token;
+
+    if (!token) {
+      throw new Error("Token not received from server");
+    }
+    localStorage.setItem("token", token);
+    navigate("/newentry");
+    
       setMessage(response.data.message);
     } catch (error) {
       console.error("Registration failed:", error.response.data.error);

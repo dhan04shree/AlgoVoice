@@ -18,4 +18,13 @@ const entryController = async (req, res) => {
     res.status(500).json({ message: 'Error saving entry' });
   }
 }
+
+module.exports.showEntry = async (req,res)=>{
+    let {id} = req.params;  
+
+    const entry = await Entry.findById(id).populate("owner");
+    if(!entry){
+        req.status(400).json({message:"Entry you requested for does not exist!"});
+    }
+}
 module.exports = entryController;

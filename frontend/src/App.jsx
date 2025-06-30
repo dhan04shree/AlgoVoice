@@ -6,14 +6,25 @@ import Login from "./components/Login"
 import {Route,Routes} from "react-router-dom"
 import VoiceRecorder from './components/voiceRecorder'
 import VoiceEntryForm from './pages/VoiceEntryForm'
+import ShowEntry from './pages/ShowEntry'
+import PrivateRoute from './components/PrivateRoute'
 function App() {
 
   return (
     <>
       <Navbar/>
+      <ShowEntry/>
       <Routes>
         <Route path="/" element={<HeroSection/>}></Route>
-        <Route path="/newentry" element={<VoiceEntryForm/>}></Route>
+        {/* <Route path="/newentry" element={}></Route> */}
+        <Route
+            path="/newentry"
+            element={
+              <PrivateRoute>
+                <VoiceEntryForm/>
+              </PrivateRoute>
+            }
+          />
         <Route path="/register" element={<Registration/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
       </Routes>

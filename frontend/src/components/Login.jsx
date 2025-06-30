@@ -4,21 +4,29 @@ import { AuthContext } from "./AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null); 
   const { setToken } = useContext(AuthContext);
+
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, {
         username,
         password,
       });
-      setToken(response.data.token);
-      localStorage.setItem("token", response.data.token);
-      navigate("/");
+      if (res && res.data && res.data.token) {
+
+        localStorage.setItem("token", res.data.token);
+        navigate("/newentry");
+
+      } else {
+        throw new Error("Invalid response from server");
+      }
     } catch (error) {
       console.error("Authentication failed:", error);
       setToken(null);

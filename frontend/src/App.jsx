@@ -22,7 +22,11 @@ function App() {
               </PrivateRoute>
             }
           />
-        <Route path="/showentry" element={<ShowEntry/>}></Route>
+        <Route path="/showentry" element={
+          <PrivateRoute>
+            <ShowEntry/>
+          </PrivateRoute>
+          }></Route>
         <Route path="/register" element={<Registration/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
       </Routes>

@@ -1,12 +1,44 @@
-import {jwtDecode} from "jwt-decode";
+import { useEffect, useState } from 'react';
 
 const ShowEntry = () => {
-  const token = localStorage.getItem("token");
-  const user = token ? jwtDecode(token) : null;
+  const [entries, setEntries] = useState([]);
+
+  useEffect(() => {
+    const fetchEntries = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/algovoice/showentry`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        if (!res.ok) {
+          console.error("Error fetching entries:", res.status);
+          return;
+        }
+
+        const data = await res.json();
+        setEntries(data);
+      } catch (err) {
+        console.error("Error:", err);
+      }
+    };
+
+    fetchEntries();
+  }, []);
 
   return (
-    <div>
-      <h1>Welcome {user?.username}!</h1>
+    <div className="text-white">
+      <h1>My Entries</h1>
+      <ul>
+        {entries.map((entry) => (
+          <li key={entry._id}>
+            <h2>{entry.question}</h2>
+            <p>{entry.queUrl}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

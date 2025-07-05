@@ -1,11 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 const Registration = () => {
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+
  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -16,18 +20,18 @@ const Registration = () => {
 
        console.log("Registration response:", res);
 
-    const token = res?.data?.token;
+    const token = res.data.token;
 
     if (!token) {
       throw new Error("Token not received from server");
     }
     localStorage.setItem("token", token);
     navigate("/newentry");
-    
-      setMessage(response.data.message);
+   
+      setMessage(res.data.message);
     } catch (error) {
-      console.error("Registration failed:", error.response.data.error);
-      setMessage(error.response.data.error);
+      console.error("Registration failed:", error.res.data.error);
+      setMessage(error.res.data.error);
     }
   };
 
@@ -62,6 +66,7 @@ const Registration = () => {
         Register
       </button>
     </form>
+    
     <p className="mt-4 text-center text-sm text-gray-500">
       Already have an account? {" "}
       <a href="/login" className="text-white hover:underline">

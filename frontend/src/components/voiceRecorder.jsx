@@ -28,14 +28,13 @@ const VoiceRecorder = ({ onUpload, onStartUpload }) => {
     };
 
     mediaRecorderRef.current.onstop = async () => {
-      clearInterval(intervalRef.current); // stop timer
+      clearInterval(intervalRef.current); 
 
       const blob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
       const url = URL.createObjectURL(blob);
       setAudioUrl(url);
       setSeconds(0);
 
-      // Upload audio
       const formData = new FormData();
       formData.append('audio', blob, 'recording.webm');
 
@@ -51,7 +50,6 @@ const VoiceRecorder = ({ onUpload, onStartUpload }) => {
         onUpload(data.url); 
       }
 
-        console.log('Uploaded:', data);
       } catch (err) {
         console.error('Upload error', err);
       }
@@ -60,7 +58,6 @@ const VoiceRecorder = ({ onUpload, onStartUpload }) => {
     mediaRecorderRef.current.start();
     setRecording(true);
 
-    // Start timer
     intervalRef.current = setInterval(() => {
       setSeconds(prev => prev + 1);
     }, 1000);

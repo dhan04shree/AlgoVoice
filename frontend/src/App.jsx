@@ -1,10 +1,9 @@
 import './App.css'
+import {Route,Routes} from "react-router-dom"
 import HeroSection from './components/HeroSection'
 import Navbar from './components/Navbar'
 import Registration from "./components/Registration"
 import Login from "./components/Login"
-import {Route,Routes} from "react-router-dom"
-import VoiceRecorder from './components/voiceRecorder'
 import VoiceEntryForm from './pages/VoiceEntryForm'
 import ShowEntry from './pages/ShowEntry'
 import PrivateRoute from './components/PrivateRoute'
@@ -13,10 +12,8 @@ function App() {
   return (
     <>
       <Navbar/>
-      <ShowEntry/>
       <Routes>
         <Route path="/" element={<HeroSection/>}></Route>
-        {/* <Route path="/newentry" element={}></Route> */}
         <Route
             path="/newentry"
             element={
@@ -25,6 +22,7 @@ function App() {
               </PrivateRoute>
             }
           />
+        <Route path="/showentry" element={<ShowEntry/>}></Route>
         <Route path="/register" element={<Registration/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
       </Routes>

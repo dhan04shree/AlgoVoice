@@ -20,24 +20,13 @@ const entrySchema = new mongoose.Schema({
     type: [String],
     default: [],
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now,
-  },
   owner :{
     type : Schema.Types.ObjectId,
     ref : "User",
+    required: true
     },
-});
-
-// Auto-update updatedAt on save
-entrySchema.pre('save', function (next) {
-  this.updatedAt = new Date();
-  next();
+},{
+  timestamps: true
 });
 
 const Entry = mongoose.model('Entry', entrySchema);

@@ -10,15 +10,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-  },
-  tokens: [
-    {
-      token: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  }
 });
 userSchema.methods.verifyPassword = async function (password) {
   const user = this;

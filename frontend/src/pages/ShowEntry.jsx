@@ -35,7 +35,10 @@ const ShowEntry = () => {
         {entries.map((entry) => (
           <li key={entry._id}>
             <h2>{entry.question}</h2>
-            <p>{entry.queUrl}</p>
+            <a href={entry.queUrl}>Question Url</a>
+            <audio controls>
+            <source src={entry.voiceUrl} type="audio/webm"></source>
+            </audio>
           </li>
         ))}
       </ul>

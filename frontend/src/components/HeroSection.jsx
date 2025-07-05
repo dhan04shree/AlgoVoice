@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 export default function HeroSection(){
 
     const navigate = useNavigate();
-    const handleGetStarted = () => {
     const token = localStorage.getItem("token");
-    navigate(token ? "/newentry" : "/login");
+    const handleGetStarted = (e) => {
+        e.preventDefault();
+        navigate(token ? "/newentry" : "/login");
     }
-     const handleShowentry = () => {
-    const token = localStorage.getItem("token");
-    navigate(token ? "/showentry" : "/login");
+     const handleShowentry = (e) => {
+         e.preventDefault();
+        navigate(token ? "/showentry" : "/login");
     }
     return(
     <div className="h-screen flex md:items-center justify-center text-white">
@@ -21,10 +22,10 @@ export default function HeroSection(){
             Record your logic, ideas, and breakthroughs in one place. Revisit your past work to sharpen your thinking and never lose progress.
         </p>
         <div className="flex md:items-center justify-center">
-        <form action="/newentry" className="flex justify-center mt-4">
+        <form  className="flex justify-center mt-4">
         <button className="herobtn group text-black px-6 py-3 rounded-lg transition duration-300 flex items-center gap-2" onClick={handleGetStarted}>Get Started <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1"><i className="fa-solid fa-arrow-right-long"></i></span></button>
         </form>     
-         <form action="/showentry" className="flex justify-center mt-4 ms-3">
+        <form className="flex justify-center mt-4 ms-3">
         <button className="group bg-[#0C0C0C] hover:bg-gray-700 text-white/99 border-0.5 border-gray-700/70  px-6 py-3 rounded-lg transition duration-300 flex items-center gap-2" onClick={handleShowentry}>My Records</button>
         </form>                           
         </div>

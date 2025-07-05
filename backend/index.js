@@ -21,7 +21,7 @@ mongoose.connect(DB_URL)
   });
 
 app.use(cors({
-  origin: process.env.FRONTENT_URL,
+  origin: process.env.FRONTEND_URL,
   methods: ['POST', 'GET', 'PUT','DELETE','PATCH'],     
   credentials: true                        
 }));

@@ -1,8 +1,9 @@
 const User = require("../model/user")
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-const registerController = async (req, res) => {
+module.exports.registerController = async (req, res) => {
     try {
         const { username, password } = req.body;
         const existingUser = await User.findOne({ username });
@@ -17,14 +18,15 @@ const registerController = async (req, res) => {
             password: hashedPassword,
         });
 
-        const savedUser = await user.save();
-            res.json({
-            message: "User registered successfully",
-            userId: savedUser._id,
-        });
+        await user.save();
+
+        const token = jwt.sign(
+            { id: user._id, username: user.username },process.env.KEY,{ expiresIn: '1h' }
+        );
+        res.json({ token });
+    
     } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
   }
 }
-module.exports = registerController;

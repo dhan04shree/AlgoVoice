@@ -21,7 +21,7 @@ mongoose.connect(DB_URL)
   });
 
 app.use(cors({
-  origin: 'https://algo-voice.vercel.app/',
+  origin: process.env.FRONTENT_URL,
   methods: ['POST', 'GET', 'PUT','DELETE','PATCH'],     
   credentials: true                        
 }));

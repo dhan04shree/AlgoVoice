@@ -15,7 +15,6 @@ const [isUploading, setIsUploading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!voiceUrl) {
-        // alert("Voice is still uploading. Please wait.");
         return;
       }
     const payload = {
@@ -28,14 +27,17 @@ const [isUploading, setIsUploading] = useState(false);
     console.log(payload);
 
     try {
+      const token = localStorage.getItem("token");
       const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/algovoice`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json',
+          "Authorization": `Bearer ${token}`
+         },
         body: JSON.stringify(payload),
       });
         if (res.ok) {
         alert('Entry saved successfully!');
-        navigate('/'); 
+        navigate('/showentry'); 
       } else {
         alert('Error saving entry.');
       }

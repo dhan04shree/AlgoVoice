@@ -7,13 +7,14 @@ import Login from "./components/Login"
 import VoiceEntryForm from './pages/VoiceEntryForm'
 import ShowEntry from './pages/ShowEntry'
 import PrivateRoute from './components/PrivateRoute'
+import Homepage from './pages/Homepage'
 function App() {
 
   return (
     <>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<HeroSection/>}></Route>
+        <Route path="/" element={<Homepage/>}></Route>
         <Route
             path="/newentry"
             element={

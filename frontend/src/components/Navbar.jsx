@@ -12,7 +12,7 @@ export default function Navbar(){
 
             <div>
                 <h1>
-                    <a href="/"><span className="font-bold text-xl bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">AlgoVoice</span></a>
+                    <a href="/"><span className="font-bold text-lg text-[#b465da]">AlgoVoice</span></a>
                 </h1>
             </div>
 

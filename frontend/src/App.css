@@ -7,3 +7,10 @@ body{
 .herobtn:hover{
   background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #a243ce 0%, #cd5cc5 50%, #ea5090 66%, #de4c89 100%);
 }
+audio {
+  height: 45px;
+  /* border: 2px solid #4caf50; */
+  /* border-radius: 10px; */
+  background-color: #f9f9f9;
+  padding: 5px;
+}

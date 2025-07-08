@@ -29,19 +29,26 @@ const ShowEntry = () => {
   }, []);
 
   return (
-    <div className="text-white">
-      <h1>My Entries</h1>
-      <ul>
+    <div className="text-white py-6 max-w-7xl">
+    <h1 className='text-3xl pb-6 text-center'>My Records</h1>
+      <div className='flex flex-wrap justify-center'>
         {entries.map((entry) => (
-          <li key={entry._id}>
-            <h2>{entry.question}</h2>
-            <a href={entry.queUrl}>Question Url</a>
-            <audio controls>
+          <div className='p-6 border b-gray-1 rounded-lg m-2' key={entry._id}>
+            <a  className='font-bold text-gray-300'>{entry.question}</a>
+            <audio id='player' controls className="my-4 text-blue-500 rounded-lg">
             <source src={entry.voiceUrl} type="audio/webm"></source>
             </audio>
-          </li>
+            <button className='mb-2 w-full bg-blue-500/50 hover:bg-blue-500/80 text-white py-2 rounded-lg  transition-colors duration-200'><a href={entry.queUrl}>Question Link</a></button>
+            <div className='flex'>
+              {entry.tags.map((tag)=>(
+              <div className='text-blue-500'>#
+                <a className=' hover:underline' href=''>{tag}</a>&nbsp;&nbsp;
+              </div>
+            ))}
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

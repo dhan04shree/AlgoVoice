@@ -1,17 +1,17 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const mongoose = require("mongoose");
-const cors = require("cors");
-require("dotenv").config();
-const authRoute = require("./routes/auth");
-const algovoiceRoutes = require("./routes/algovoice");
-
-const DB_URL = process.env.MONGO_URL;
-
-const multer = require('multer');
-const { storage } = require('./cloudinary'); 
+import mongoose from "mongoose";
+import cors from "cors";
+import authRoute from "./routes/auth.js";
+import algovoiceRoutes from "./routes/algovoice.js";
+import multer from "multer";
+import { storage } from "./cloudinary.js";
 const upload = multer({ storage });
-
+// const OpenAI = require("openai");
+// const openai = new OpenAI({ apiKey: process.env.OPENAI_APIKEY });
+import dotenv from "dotenv";
+dotenv.config();
+const DB_URL = process.env.MONGO_URL;
 mongoose.connect(DB_URL)
    .then(() => {
     console.log("Connected to db");

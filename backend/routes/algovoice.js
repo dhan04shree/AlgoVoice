@@ -1,12 +1,20 @@
-const express = require('express');
+import express from "express";
 const router = express.Router();
 
-const authMiddleware = require("../middleware/authMiddleware");
-const { showController } = require('../controller/showController');
-const { entryController } = require('../controller/entryController');
+import {authMiddleware} from "../middleware/authMiddleware.js";
+import { showController } from "../controller/showController.js";
+import { entryController } from "../controller/entryController.js";
+import { showOneEntry } from "../controller/showOneEntry.js";
+import { transcribeEntry, analyzeAudio } from "../controller/transcribeEntry.js";
+
+
+router.post('/:id/entry', transcribeEntry);
+router.post('/:id/analysis', analyzeAudio);
 
 router.post('/',authMiddleware,entryController);
 
 router.get('/showentry',authMiddleware,showController)
 
-module.exports = router;
+router.get('/:id', showOneEntry);
+
+export default router;

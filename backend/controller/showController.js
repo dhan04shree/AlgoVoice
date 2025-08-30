@@ -1,6 +1,6 @@
-const Entry = require("../model/entry");
+import {Entry} from "../model/entry.js";
 
-module.exports.showController = async (req,res)=>{
+export const showController = async (req,res)=>{
     try {
     const entry = await Entry.find({ owner: req.user.id });
 

@@ -1,6 +1,6 @@
 import './App.css'
 import {Route,Routes} from "react-router-dom"
-import HeroSection from './components/HeroSection'
+// import HeroSection from './components/HeroSection'
 import Navbar from './components/Navbar'
 import Registration from "./components/Registration"
 import Login from "./components/Login"
@@ -8,6 +8,7 @@ import VoiceEntryForm from './pages/VoiceEntryForm'
 import ShowEntry from './pages/ShowEntry'
 import PrivateRoute from './components/PrivateRoute'
 import Homepage from './pages/Homepage'
+import EntryDetail from './pages/EntryDetail'
 function App() {
 
   return (
@@ -30,6 +31,8 @@ function App() {
           }></Route>
         <Route path="/register" element={<Registration/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
+        <Route path="/entry/:id" element={<EntryDetail />} />
+
       </Routes>
     </>
   )

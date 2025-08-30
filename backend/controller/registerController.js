@@ -1,9 +1,11 @@
-const User = require("../model/user")
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
+import {User} from "../model/user.js";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+import dotenv from "dotenv";
 
-module.exports.registerController = async (req, res) => {
+dotenv.config();
+
+export const registerController = async (req, res) => {
     try {
         const { username, password } = req.body;
         const existingUser = await User.findOne({ username });

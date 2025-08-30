@@ -1,6 +1,6 @@
-const Entry = require("../model/entry");
+import {Entry} from "../model/entry.js";
 
-module.exports.entryController = async (req, res) => {
+export const entryController = async (req, res) => {
   try {
     const { question,queUrl,tags, voiceUrl } = req.body;
     const newEntry = new Entry({

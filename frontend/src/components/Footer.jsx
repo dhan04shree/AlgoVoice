@@ -1,4 +1,4 @@
-export default function footer({
+export default function Footer({
   brand = "AlgoVoice",
   description = "Empowering minds to capture, connect, and cultivate breakthrough thinking.",
   columns = [

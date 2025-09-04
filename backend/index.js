@@ -7,8 +7,6 @@ import algovoiceRoutes from "./routes/algovoice.js";
 import multer from "multer";
 import { storage } from "./cloudinary.js";
 const upload = multer({ storage });
-// const OpenAI = require("openai");
-// const openai = new OpenAI({ apiKey: process.env.OPENAI_APIKEY });
 import dotenv from "dotenv";
 dotenv.config();
 const DB_URL = process.env.MONGO_URL;

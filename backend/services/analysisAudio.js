@@ -3,13 +3,12 @@ import { transcribeAudio } from "./transcribeAudio.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-
 const GEMINI_API_KEY = process.env.GOOGLE_API_KEY;
 
 export const analyzeWithGemini = async (transcript) => {
   const prompt = `
 You are an AI assistant analyzing a coding explanation.
-Return ONLY valid JSON with the following structure:
+Strictly return ONLY valid JSON in this format with NO extra text:
 {
   "concepts": ["list of main coding topics"],
   "mistakes": ["list of incorrect or misleading points"],
@@ -18,29 +17,26 @@ Return ONLY valid JSON with the following structure:
 
 Transcript:
 ${transcript}
-  `;
+`;
 
   try {
     const response = await axios.post(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
       {
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: prompt }],
-          },
-        ],
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
         generationConfig: {
-          responseMimeType: "application/json"
-        }
+          temperature: 0.2,
+          maxOutputTokens: 512,
+        },
       },
       {
         headers: { "Content-Type": "application/json" },
       }
     );
 
-    const rawText =
-      response.data?.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+    let rawText = response.data?.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+    const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+    if (jsonMatch) rawText = jsonMatch[0];
 
     let result;
     try {
@@ -49,8 +45,11 @@ ${transcript}
       console.error("Failed to parse Gemini JSON:", rawText);
       result = { concepts: [], mistakes: [], summary: rawText };
     }
-// console.log(result);
-    return result;
+    return {
+      concepts: result.concepts || [],
+      mistakes: result.mistakes || [],
+      summary: result.summary || "No summary available",
+    };
   } catch (err) {
     console.error("Gemini analysis error:", err.response?.data || err.message);
     throw err;
@@ -60,8 +59,7 @@ ${transcript}
 export const analysisAudio = async (cloudinaryUrl) => {
   const transcript = await transcribeAudio(cloudinaryUrl);
   const analysis = await analyzeWithGemini(transcript);
-  // console.log(analysis);
-  return { analysis };
+  return analysis;
 };
 
 // import axios from "axios"; 

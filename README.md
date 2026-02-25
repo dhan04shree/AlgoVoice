@@ -1,12 +1,43 @@
 
-# AlgoVoice
+<!-- # AlgoVoice
 
 A web-based platform that helps students practice and revise coding problems like DSA. Instead of only writing code, students explain their solutions verbally. The website records these explanations, provides transcriptions, and uses AI to give feedback on clarity and correctness. This makes revision more effective by combining coding, reasoning, and self-explanation in one place.
 
 
 ## Problem Statement
-When preparing for DSA, students often focus only on solving problems in code. This misses an important part of learning: explaining the logic clearly. Without explaining, it’s harder to identify weak concepts, logical gaps, or unclear reasoning. Traditional platforms don’t encourage active recall and verbal practice, which are key to mastering problem-solving.
-## Key Features
+When preparing for DSA, students often focus only on solving problems in code. This misses an important part of learning: explaining the logic clearly. Without explaining, it’s harder to identify weak concepts, logical gaps, or unclear reasoning. Traditional platforms don’t encourage active recall and verbal practice, which are key to mastering problem-solving.-->
+# 🎙️AlgoVoice
+**Learn by explaining. Not just by reading.**
+
+AlgoVoice is an AI-powered learning companion that helps users practice verbalizing technical concepts, analyze their explanations, and convert spoken thoughts into structured understanding.
+
+Unlike traditional platforms that only test problem-solving ability, AlgoVoice trains the communication skill behind knowledge — the skill required in interviews, presentations, discussions, and real-world teamwork.
+
+## 🚩The Problem
+
+Most learners prepare silently.
+
+They:
+
+- solve coding problems but cannot explain them
+- understand topics but struggle to articulate logic
+- forget concepts because they never verbalize them
+- panic during interviews while thinking aloud
+
+**Knowing ≠ Explaining**
+
+In reality, strong communication often matters as much as strong technical knowledge
+## 💡The Idea
+
+AlgoVoice turns studying into a conversation.
+
+You speak your thought process →
+AI analyzes your explanation →
+You receive feedback, notes, and insights.
+
+This builds deeper understanding and confidence simultaneously.
+
+## ⚙️Key Features
 
 - **Voice Recording** - record your explanation of a DSA solution directly on the website.
 
@@ -21,7 +52,7 @@ When preparing for DSA, students often focus only on solving problems in code. T
 - **User-Friendly UI** – simple, distraction-free interface built with React and TailwindCSS.
 
 
-## Tech Stack
+## 🛠️Tech Stack
 
 **Frontend :**  React, TailwindCSS
 
@@ -36,7 +67,7 @@ When preparing for DSA, students often focus only on solving problems in code. T
 **AI Analysis :** Google Generative AI
 
 
-## Quick Start
+## ⚡Quick Start
 Follow these steps to set up AlgoVoice locally:
 
 **1. Clone the repository**
